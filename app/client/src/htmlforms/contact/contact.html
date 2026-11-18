@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="uk">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>About - whengreen.phts</title>
+        
+        <link rel="stylesheet" href="/htmlforms/css-header-style/header.css" />
+        <link rel="stylesheet" href="/htmlforms/contact/style.css" />
+        <link rel="stylesheet" href="/htmlforms/css-header-style/footer.css" />
+        <link rel="icon" type="image/x-icon" href="../../photos/icon1.png">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Vollkorn:ital,wght@0,400..900;1,400..900&family=Winky+Sans:ital,wght@0,300..900;1,300..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="welcome">
+            <div class="container">
+                <div class="first-page">
+                    <div class="header">
+                        <div class="header-menu">
+                            <a class="header-title">WHENGREEN.PHTS</a>
+
+                            <ul class="nav-links">
+                                <li><a class="node" href="/">HOME</a></li>
+                                <li><a class="node" href="/about">ABOUT</a></li>
+                                <li>
+                                    <a class="node" href="/testimonials">TENSIMONIALS</a> 
+                                </li>
+                                <li>
+                                    <a class="node toggle-node" href="#portfolio">PORTFOLIO ↓</a>
+                                    <button class="toggle" onclick="this.classList.toggle('active')"></button>
+                                    <ul class="dropdown2">
+                                        <li><a class="node" href="/portfolio/couples">Couples</a></li>
+                                        <li><a class="node" href="/portfolio/weddings">Weddings</a></li>
+                                        <li><a class="node" href="/portfolio/individual">Individual</a></li>
+                                        <li><a class="node" href="/portfolio/family">Family</a></li>
+                                        <li><a class="node" href="/portfolio/pregnancy">Pregnancy</a></li>
+                                        <li><a class="node" href="/portfolio/foods">Foods</a></li>
+                                        <li><a class="node" href="/portfolio/christening">Baptism / Christening</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="node" href="/contact">CONTACT</a></li>
+                            </ul>
+
+                            <div class="burger-menu">
+                                <span></span>
+                            </div>
+
+                        </div>
+                    </div>
+            
+                    <section class="hero-section">
+                        <div class="hero-text-top">
+                          <h1>Let's Begin Your Adventure</h1>
+                        </div>
+                        <div class="hero-text-bottom">
+                            <p>You're One Step Closer To Your Dream</p>
+                            <span>Elopement, Just Fill Out This Quick Form</span>
+                        </div>
+                    </section>
+                    
+                        <div class="contactExternalForm">
+                            <form id="contactForm">
+                                <label for="name">Name *</label><br>
+                                <input type="text" id="name" name="name" required autocomplete="off" autocorrect="off"> <br><br>
+                        
+                                <label for="email">Email address*</label><br>
+                                <input type="email" id="email" name="email" required><br><br>
+
+                                <label for="message">Message *</label><br>
+                                <textarea id="message" name="message" rows="3" required></textarea><br><br>
+
+                                <button type="submit">Send Message</button>
+                            </form>
+
+                            <div id="result"></div>
+                        </div>
+
+                
+            <footer>
+                <div class="footer-left">
+                    <p>&copy; 2025 whengreen.phts</p>
+                </div>
+                <div class="footer-center">
+                    <div class="footer-icon">
+                        <a href="https://www.facebook.com/profile.php?id=100011780673668" target="_blank">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Facebook%2BIcon%2BBlack.png" alt="Facebook">
+                        </a>
+                    </div>
+                    
+                    <div class="footer-icon">
+                        <a href="https://www.instagram.com/whengreen.phts/" target="_blank">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Instagram_font_awesome.svg" alt="Instagram">
+                        </a>
+                    </div>
+                    
+                    <div class="footer-icon">
+                        <a href="https://www.tiktok.com/@whengreen.phts?_t=8raJb3KpsTv&_r=1" target="_blank">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/Tiktok_icon.svg" alt="Tiktok">
+                        </a>
+                    </div>
+                </div>
+            </footer>
+            <div class="footer-right">
+                <button id="scrollToTopBtn">↑</button>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="/utils/scroll.js"></script>
+        <script src="/utils/burgerMenu.js"></script>
+        <script src="/utils/config.js"></script>
+        <script src="/htmlforms/contact/script.js"></script>
+    </body>
+</html>

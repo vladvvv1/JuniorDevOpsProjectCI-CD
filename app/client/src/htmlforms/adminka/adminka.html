@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Адмін-панель фото</title>
+    <link rel="stylesheet" href="/htmlforms/adminka/style.css">
+</head>
+<body>
+    <h1>ADMINKA ДЛЯ НАСТЮХИИ</h1>
+
+    <h5>Important info: Newest (latest added) photos will be displayed at the top of the gallery.</h5>
+    <label for="category-select" class="category-selector">Вибери сторінку -></label>
+    <select name="category" id="category-select">
+        <option value="">--Please choose an option--</option>
+        <option value="About">about</option>
+        <option value="Testimonials">testimonials</option>
+        <option value="Portfolio">portfolio</option>
+        <option value="Couples">couples</option>
+        <option value="Weddings">weddings</option>
+        <option value="Individual">individual</option>
+        <option value="Family">family</option>
+        <option value="Pregnancy">pregnancy</option>
+        <option value="Foods">foods</option>
+        <option value="Baptism/christening">baptism</option>
+    </select>
+    
+    <div class="upload-container">
+        <label for="fileInput" class="custom-file-upload">Вибрати фото</label>
+        <input type="file" id="fileInput" multiple />
+        <p id="file-count">Вибрано файлів: 0</p>
+        <button id="upload-btn">Завантажити Фото</button>
+
+        <h4 class="warning-message">It may take a few seconds...</h1>
+    </div>    
+
+    <div class="photo-container" id="photo-container"></div>
+
+    
+    <div id="photos-container"></div>
+    <script src="/utils/config.js"></script>
+    <script type="module" src="/htmlforms/adminka/script.js"></script>
+</body>
+</html>

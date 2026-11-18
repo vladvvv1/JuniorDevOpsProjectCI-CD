@@ -1,0 +1,16 @@
+# Terraform
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+*.tfvars
+!terraform.tfvars.example
+crash.log
+override.tf
+override.tf.json
+
+# Бінарні файли та інше
+terraform/kubectl
+terraform/kubectl.sha256
+.DS_Store
+.env
+

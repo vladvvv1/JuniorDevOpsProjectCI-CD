@@ -1,0 +1,226 @@
+* { padding: 0; margin: 0; box-sizing: border-box;}
+  
+html { scroll-behavior: smooth !important; }
+  
+body { color: white; margin: 0; padding: 0; width: 100%; }
+  
+.header-title { color: #000000; }
+  
+.nav-links li a { color: black; }
+  
+.burger-menu span { background-color: black; }
+  
+.burger-menu::before, .burger-menu::after { background-color: #000000; }
+  
+.open { display: flex !important; }
+  
+.welcome { height: 100vh; }
+  
+.container { height: 100vh; }
+  
+.first-page { background-color: rgb(248, 248, 245); }
+
+.hero-section {
+    position: relative;
+    height: 57vh;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    overflow: hidden;
+}
+  
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../../photos/AV9A1106-16751e41-2500.jfif') center center / cover no-repeat;
+    z-index: 0;
+}
+  
+.hero-section::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+  
+
+   
+.hero-text-top {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 2;
+}
+
+.hero-text-top h1 {
+    font-size: 3.5rem;
+    font-family: "Vollkorn", serif;
+    font-weight: 400;
+    max-width: 500px;
+    margin-bottom: 1rem;
+    line-height: 62.944px;
+}
+
+
+.hero-text-bottom {
+    position: absolute;
+    bottom: 18%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 2; 
+}
+
+.hero-text-bottom P { font-family: "Courier Prime", monospace; }
+
+.hero-text-bottom span { font-family: "Courier Prime", monospace; } 
+
+@media (max-width: 1024px) {
+    .hero-text-top h1 { font-size: 3rem; line-height: 49.3824px; }
+}
+
+@media (max-width: 768px) { 
+    .hero-section { margin: 0 10px; }
+
+    .hero-text-top h1 { font-size: 2.5rem; max-width: 500px; width: 500px; }
+
+    .hero-text-bottom p { font-size: 0.9rem; }
+
+    .hero-text-bottom span { font-size: 0.9rem; line-height: 35px; }
+}
+
+@media (max-width: 550px) {
+    .hero-text-top h1 { font-size: 1.9rem; }
+    .hero-text-bottom p, .hero-text-bottom span { font-size: 0.8rem; max-width: 1000px; width: 1000px; }
+
+}
+
+@media (max-width: 426px) {
+    .hero-text-top h1 { font-size: 1.7rem; }
+    .hero-text-bottom p { font-size: 0.8rem; }
+    .header-title { font-size: 20px; }
+}
+
+@media (max-width: 342px) {
+    .hero-text-top h1 { font-size: 1.4rem; max-width: 200px; line-height: 26.432px; }
+
+    .hero-text-bottom P { font-size: 0.7rem; }
+
+    .hero-text-bottom span { font-size: 0.7rem; }
+}
+
+.contactExternalForm { background-color: #D9DCCD; }
+
+#contactForm {
+    max-width: 750px;
+    margin: 15px auto;
+    background: #D9DCCD;
+    padding: 30px 0;
+    font-family: 'Courier Prime', monospace;
+    color: #333;
+}
+  
+#contactForm label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #333;
+    font-size: 0.9rem;
+}
+  
+#contactForm input,
+#contactForm textarea {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    background: transparent;
+    padding: 0.5rem 0;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    color: #000;
+    font-family: inherit;
+}
+  
+#contactForm input:focus,
+#contactForm textarea:focus { outline: none; }
+  
+#contactForm button {
+    display: inline-block;
+    font-family: "Courier Prime";
+    font-weight: 300;
+    font-size: 13px;
+    background: #6c7f81; /* трохи темніший колір */
+    color: white;
+    border: none;
+    text-decoration: none;
+    min-width: 200px;
+    text-align: center;
+    cursor: pointer;
+    padding: 12px 35px;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+#result {
+    color: rgb(40, 43, 43);
+    font-family: "Work Sans", sans-serif;
+    line-height: 25.95px;
+    font-weight: 500;
+    font-size: 15px;
+    display: inline-block;
+    margin-bottom: 50px;
+    width: 100%;
+    text-align: center;
+}
+
+#contactForm button:hover { background-color: #5f7072; }
+
+#contactForm button:active { transform: scale(0.97); background-color: #4e5c5e; }
+
+#contactForm input:-webkit-autofill,
+#contactForm textarea:-webkit-autofill {
+    background-color: transparent !important;
+    -webkit-box-shadow: 0 0 0 1000px #D9DCCD inset !important;
+    -webkit-text-fill-color: #000 !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+
+@media (max-width: 1025px) {
+    #contactForm { padding-top: 60px; max-width: 700px; }
+
+    #contactForm input { margin-bottom: 20px; }
+
+    #contactForm textarea { margin-bottom: 20px; }
+}
+
+@media (max-width: 769px) {
+    #contactForm { max-width: 500px; }
+
+    #contactForm input { margin-bottom: 20px; }
+
+    #contactForm textarea { margin-bottom: 20px; }
+}
+
+@media (max-width: 600px) {
+    #contactForm { padding: 60px 20px; }
+
+    #contactForm label { font-size: 0.8rem; }
+
+    #contactForm input,
+    #contactForm textarea { font-size: 0.9rem; padding: 0.4rem 0; margin-bottom: 1.5rem; }
+
+    #contactForm button { font-size: 12px; min-width: 100%; padding: 10px; }
+
+    #result { font-size: 14px; }
+}

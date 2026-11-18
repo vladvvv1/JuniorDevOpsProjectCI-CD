@@ -1,0 +1,113 @@
+* { padding: 0; margin: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body { color: white; margin: 0; padding: 0; width: 100%; }
+
+.open { display: flex !important; }
+
+.welcome { height: 100vh; }
+
+.container { height: 100vh; }
+
+.header-menu { display: flex; margin-left: 60px; padding-top: 30px; padding-bottom: 15px; justify-content: space-between; align-items: center; }
+
+.header-title { color: black; font-size: 30px; }
+
+
+.page-with-welcome-text {
+    width: 100%;
+    background: url("../../photos/backgroundpicture3.png") no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 0;
+  }
+  
+.container2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    padding: 0 20px;
+    width: 100%;
+    gap: 50px;
+}
+  
+.content-wrapper2, .image2-block, .text-wrapper2 {
+    flex: 1 1 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+  
+.left-text {
+    font-family: 'Vollkorn', serif;
+    font-size: 48px;
+    font-weight: 600;
+    color: rgb(40, 43, 43);
+    line-height: 1.2;
+}
+  
+.image2 {
+    width: 100%;
+    height: auto;
+    max-width: 350px;
+    object-fit: cover;
+    transition: transform 2s ease-in-out;
+    border-radius: 10px;
+}
+  
+.image2:hover { transform: scale(1.15); }
+  
+.right-text p {
+    font-family: "Courier Prime", monospace;
+    font-size: 20px;
+    font-weight: 400;
+    color: rgb(40, 43, 43);
+    line-height: 1.6;
+}
+  
+@media (max-width: 768px) {
+    .page-with-welcome-text { padding: 10px 0; }
+
+    .container2 { flex-direction: column; gap: 20px; }
+  
+    .left-text { font-size: 30px; margin: 20px; }
+
+    .text-wrapper2 { flex: 0 0 0; }
+  
+    .image2-block { flex: 0 0 0; }
+
+    .image2 { max-width: 50%; }
+
+    .content-wrapper2 { padding:  0; margin: 0 0; flex: 0 0 0; }
+
+    .header-title { font-size: 18px; }
+  
+    .right-text p { margin-top: 30px; font-size: 18px; text-align: center; }
+}
+
+@media (max-width: 425px){
+    .image2 { max-width: 65%; }
+}
+
+@media (max-width: 768px) {
+    .container2 { flex-direction: column; align-items: center; text-align: center; }
+
+    .content-wrapper2,
+    .text-wrapper2 {
+        min-width: 100%;
+        max-width: 100%;
+        flex: 1 1 auto;
+        padding: 0 20px;
+    }
+
+    .content-left2 { font-size: 32px; padding-left: 0; }
+
+    .image2 { max-width: 230px; }
+
+    .right-up-text2, .rigth-text2 { text-align: center; margin-top: 0px; }
+}
