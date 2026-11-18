@@ -3,6 +3,11 @@ output "kuber_cluster_id" {
   value = azurerm_kubernetes_cluster.aks.id
 }
 
+output "kuber_cluster_name" {
+  description = "Kubernetes cluster name"
+  value = azurerm_kubernetes_cluster.aks.name
+}
+
 output "role_assignment_aks_acr_pull" {
   description = "Azurerm role assignment aks acr pull"
   value = azurerm_role_assignment.aks_acr_pull.id

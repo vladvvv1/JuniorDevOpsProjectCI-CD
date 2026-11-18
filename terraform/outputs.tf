@@ -42,3 +42,19 @@ output "acr_id" {
   description = "Azure Container Registry"
   value       = module.acr.acr_id
 }
+
+output "acr_login_server" {
+  value = module.acr.acr_login_server
+}
+
+output "acr_name" {
+  value = module.acr.acr_name
+}
+
+output "aks_name" {
+  value = module.aks.kuber_cluster_name
+}
+
+output "database_fqdn" {
+  value = module.database.postgres_fqdn
+}

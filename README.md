@@ -1,3 +1,16 @@
+Створення storage account for state files. (для того, щоб при перезапускав workflows я не получав помилок, що вже щось створено).
+
+RESOURCE_GROUP_NAME="tfstate-rg"
+STORAGE_ACCOUNT_NAME="tfstate${RANDOM}"
+CONTAINER_NAME="tfstate"
+
+# Створення RG та Storage Account
+az group create --name $RESOURCE_GROUP_NAME --location westeurope
+az storage account create --resource-group $RESOURCE_GROUP_NAME --name $STORAGE_ACCOUNT_NAME --sku Standard_LRS --encryption-services blob
+az storage container create --name $CONTAINER_NAME --account-name $STORAGE_ACCOUNT_NAME
+
+echo "Ваш Storage Account Name: $STORAGE_ACCOUNT_NAME"
+
 # Step 1: Provisioning the Base Infrastructure (Without the Kubernetes Job)
 
 ```bash
