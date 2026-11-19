@@ -93,8 +93,13 @@ jobs:
           # Генерація та застосування маніфесту Job
           envsubst '$ACR_LOGIN_SERVER $IMAGE_TAG $JOB_NAME' < k8s/migration-job.yaml.tpl | kubectl apply -f -
 
-          # Очікування успішного завершення міграції (до 180 секунд)
-          kubectl wait --for=condition=complete job/${JOB_NAME} --timeout=180s
+          # Очікування завершення. При виникненні помилки виводимо логи прямо в консоль GitHub Actions
+          if ! kubectl wait --for=condition=complete job/${JOB_NAME} --timeout=120s; then
+            echo "================ MIGRATION LOGS ================"
+            kubectl logs job/${JOB_NAME} || true
+            echo "================================================"
+            exit 1
+          fi
 
       - name: Deploy Node.js Application
         run: |

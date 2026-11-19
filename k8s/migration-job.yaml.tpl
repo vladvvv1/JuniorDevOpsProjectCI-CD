@@ -4,13 +4,13 @@ metadata:
   name: ${JOB_NAME}
   namespace: default
 spec:
-  ttlSecondsAfterFinished: 300
-  backoffLimit: 2
+  ttlSecondsAfterFinished: 600
+  backoffLimit: 0
   template:
     metadata:
       name: db-migration-pod
     spec:
-      restartPolicy: OnFailure
+      restartPolicy: Never
       containers:
         - name: migration-container
           image: ${ACR_LOGIN_SERVER}/db-migration:${IMAGE_TAG}
@@ -37,3 +37,5 @@ spec:
                   key: DB_PASSWORD
             - name: DB_NAME
               value: "portfolio"
+            - name: PGSSLMODE
+              value: "require"
