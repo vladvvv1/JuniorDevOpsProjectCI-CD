@@ -1,31 +1,31 @@
 variable "environment" {
-  type = string
+  type        = string
   description = "Env name"
-  default = "dev"
+  default     = "dev"
 }
 
 variable "resource_group_name" {
-  type = string
+  type        = string
   description = "Name of the resource group"
-  default = "app-rg"
+  default     = "app-rg"
 }
 
 variable "resource_group_location" {
-  type = string
+  type        = string
   description = "Name of the resource group location"
-  default = "austriaeast"
+  default     = "austriaeast"
 }
 
 variable "vnet_address_space" {
-  type = string
+  type        = string
   description = "IP address spaces of vnet"
-  default = "10.0.0.0/16"
+  default     = "10.0.0.0/16"
 }
 
 variable "subnet_address_prefixes" {
-  type = list(string)
+  type        = list(string)
   description = "List of subnet address prefixes"
-  default = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"] 
+  default     = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
 }
 
 variable "tags" {

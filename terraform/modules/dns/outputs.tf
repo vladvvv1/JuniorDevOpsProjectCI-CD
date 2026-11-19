@@ -1,6 +1,6 @@
-output "private_dns_zone_id"{
+output "private_dns_zone_id" {
   description = "ID of Private DNS zone"
-  value = azurerm_private_dns_zone.postgres.id
+  value       = azurerm_private_dns_zone.postgres.id
 }
 
 output "dns_to_postgres_vnet_link" {

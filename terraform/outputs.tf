@@ -58,3 +58,8 @@ output "aks_name" {
 output "database_fqdn" {
   value = module.database.postgres_fqdn
 }
+
+output "database_password" {
+  value     = module.database.database_password
+  sensitive = true
+}

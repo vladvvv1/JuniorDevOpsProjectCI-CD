@@ -1,16 +1,16 @@
 output "kuber_cluster_id" {
   description = "Kubernetes cluster id"
-  value = azurerm_kubernetes_cluster.aks.id
+  value       = azurerm_kubernetes_cluster.aks.id
 }
 
 output "kuber_cluster_name" {
   description = "Kubernetes cluster name"
-  value = azurerm_kubernetes_cluster.aks.name
+  value       = azurerm_kubernetes_cluster.aks.name
 }
 
 output "role_assignment_aks_acr_pull" {
   description = "Azurerm role assignment aks acr pull"
-  value = azurerm_role_assignment.aks_acr_pull.id
+  value       = azurerm_role_assignment.aks_acr_pull.id
 }
 
 output "kubernetes_cluster_host" {

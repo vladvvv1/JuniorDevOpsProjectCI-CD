@@ -42,6 +42,7 @@ jobs:
           echo "AKS_NAME=$(terraform output -raw aks_name)" >> $GITHUB_ENV
           echo "RESOURCE_GROUP=$(terraform output -raw resource_group_name)" >> $GITHUB_ENV
           echo "DB_HOST=$(terraform output -raw database_fqdn)" >> $GITHUB_ENV
+          echo "DB_PASSWORD=$(terraform output -raw database_password)" >> $GITHUB_ENV
 
       - name: Log in to Azure Container Registry
         run: |
@@ -52,13 +53,11 @@ jobs:
           IMAGE_TAG=${{ github.sha }}
           echo "IMAGE_TAG=${IMAGE_TAG}" >> $GITHUB_ENV
 
-          # 1. Збірка та публікація DB Migration
           cd database
           docker build -t ${{ env.ACR_LOGIN_SERVER }}/db-migration:${IMAGE_TAG} .
           docker push ${{ env.ACR_LOGIN_SERVER }}/db-migration:${IMAGE_TAG}
           cd ..
 
-          # 2. Збірка та публікація Node.js App
           cd app
           docker build -t ${{ env.ACR_LOGIN_SERVER }}/nodejs-app:${IMAGE_TAG} .
           docker push ${{ env.ACR_LOGIN_SERVER }}/nodejs-app:${IMAGE_TAG}
@@ -74,7 +73,6 @@ jobs:
           DB_PASSWORD="${{ secrets.DB_PASSWORD }}"
           DB_HOST="${{ env.DB_HOST }}"
           
-          # Формування connection string з авто-маскуванням у логах
           DATABASE_URL="postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:5432/portfolio?sslmode=require&uselibpqcompat=true"
           echo "::add-mask::$DATABASE_URL"
 
@@ -90,10 +88,8 @@ jobs:
           export JOB_NAME="db-migration-${{ github.run_id }}"
           echo "JOB_NAME=${JOB_NAME}" >> $GITHUB_ENV
 
-          # Генерація та застосування маніфесту Job
           envsubst '$ACR_LOGIN_SERVER $IMAGE_TAG $JOB_NAME' < k8s/migration-job.yaml.tpl | kubectl apply -f -
 
-          # Очікування завершення. При виникненні помилки виводимо логи прямо в консоль GitHub Actions
           if ! kubectl wait --for=condition=complete job/${JOB_NAME} --timeout=120s; then
             echo "================ MIGRATION LOGS ================"
             kubectl logs job/${JOB_NAME} || true
@@ -103,7 +99,6 @@ jobs:
 
       - name: Deploy Node.js Application
         run: |
-          # Застосування Service та Deployment
           kubectl apply -f k8s/service.yaml
           envsubst '$ACR_LOGIN_SERVER $IMAGE_TAG' < k8s/deployment.yaml.tpl | kubectl apply -f -
 

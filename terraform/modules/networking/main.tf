@@ -10,7 +10,7 @@ resource "azurerm_subnet" "snet-app" {
   resource_group_name  = var.resource_group_name
   virtual_network_name = azurerm_virtual_network.main.name
 
-  address_prefixes     = [var.subnet_address_prefixes[0]]
+  address_prefixes = [var.subnet_address_prefixes[0]]
 
   delegation {
     name = "delegation-app-subnet"
@@ -25,14 +25,14 @@ resource "azurerm_subnet" "snet-aks" {
   name                 = "snet-aks"
   resource_group_name  = var.resource_group_name
   virtual_network_name = azurerm_virtual_network.main.name
-  address_prefixes     = [var.subnet_address_prefixes[1]]  
+  address_prefixes     = [var.subnet_address_prefixes[1]]
 }
 
 resource "azurerm_subnet" "snet-db" {
-  name                  = "snet-db"
-  resource_group_name   = var.resource_group_name
-  virtual_network_name  = azurerm_virtual_network.main.name
-  address_prefixes      = [var.subnet_address_prefixes[2]]
+  name                 = "snet-db"
+  resource_group_name  = var.resource_group_name
+  virtual_network_name = azurerm_virtual_network.main.name
+  address_prefixes     = [var.subnet_address_prefixes[2]]
 
   delegation {
     name = "delegation-postgres"
@@ -77,7 +77,7 @@ resource "azurerm_network_security_group" "database-nsg" {
   name                = "${var.resource_name_prefix}-database-nsg"
   resource_group_name = var.resource_group_name
   location            = var.resource_group_location
-  
+
   security_rule {
     name                       = "database_nsg_rule"
     priority                   = 100

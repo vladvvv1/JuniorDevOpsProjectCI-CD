@@ -8,17 +8,17 @@ resource "azurerm_postgresql_flexible_server" "postgres" {
   resource_group_name           = var.resource_group_name
   location                      = var.resource_group_location
   version                       = "14"
-  public_network_access_enabled = false 
-  
-  delegated_subnet_id    = var.snet_db_id
-  private_dns_zone_id    = var.private_dns_zone_id
-  
+  public_network_access_enabled = false
+
+  delegated_subnet_id = var.snet_db_id
+  private_dns_zone_id = var.private_dns_zone_id
+
   administrator_login    = var.db_admin_user
   administrator_password = var.db_admin_password
 
   storage_mb = 32768
-  sku_name   = "B_Standard_B1ms" 
-  zone       = "1" 
+  sku_name   = "B_Standard_B1ms"
+  zone       = "1"
 
   depends_on = [var.dns_to_postgres_vnet_link]
 }
