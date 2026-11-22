@@ -65,5 +65,7 @@ output "database_password" {
 }
 
 output "database_username" {
+  description = "The administrator username for the PostgreSQL database"
   value = module.database.database_user
+  sensitive = true
 }
