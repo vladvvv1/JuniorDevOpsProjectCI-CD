@@ -23,7 +23,7 @@ resource "random_password" "db_password" {
   override_special = "!#$%&*()-_=+[]{}<>:?"
 }
 
-resource "azurerm_role_assignment" "gha_kv_user" {
+resource "azurerm_role_assignment" "sp_kv_officer" {
   scope                = azurerm_key_vault.kv.id
   role_definition_name = "Key Vault Secrets User"
   principal_id         = data.azurerm_client_config.current.object_id
