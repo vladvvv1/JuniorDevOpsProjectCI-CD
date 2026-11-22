@@ -42,6 +42,7 @@ jobs:
           echo "AKS_NAME=$(terraform output -raw aks_name)" >> $GITHUB_ENV
           echo "RESOURCE_GROUP=$(terraform output -raw resource_group_name)" >> $GITHUB_ENV
           echo "DB_HOST=$(terraform output -raw database_fqdn)" >> $GITHUB_ENV
+          echo "DB_USER=$(terraform output -raw database_username)" >> $GITHUB_ENV
           echo "DB_PASSWORD=$(terraform output -raw database_password)" >> $GITHUB_ENV
 
       - name: Log in to Azure Container Registry
@@ -69,11 +70,11 @@ jobs:
 
       - name: Create Kubernetes Secret
         run: |
-          DB_USER="${{ secrets.DB_USER }}"
-          DB_PASSWORD="${{ secrets.DB_PASSWORD }}"
+          DB_USER="${{ env.DB_USER }}"
+          DB_PASSWORD="${{ env.DB_PASSWORD }}"
           DB_HOST="${{ env.DB_HOST }}"
           
-          DATABASE_URL="postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:5432/portfolio?sslmode=require&uselibpqcompat=true"
+          DATABASE_URL="postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:5432/portfolio?sslmode=require"
           echo "::add-mask::$DATABASE_URL"
 
           kubectl create secret generic app-db-secret \

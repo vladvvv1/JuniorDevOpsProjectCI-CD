@@ -18,7 +18,7 @@ spec:
           command:
             - "/bin/sh"
             - "-c"
-            - "PGPASSWORD=$DB_PASSWORD psql -h $DB_HOST -U $DB_USER -d $DB_NAME -f 01-init.sql && PGPASSWORD=$DB_PASSWORD psql -h $DB_HOST -U $DB_USER -d $DB_NAME -f 02-import.sql"
+            - 'PGPASSWORD="$DB_PASSWORD" psql -h "$DB_HOST" -U "$DB_USER" -d "$DB_NAME" -f 01-init.sql && PGPASSWORD="$DB_PASSWORD" psql -h "$DB_HOST" -U "$DB_USER" -d "$DB_NAME" -f 02-import.sql'
           env:
             - name: DB_HOST
               valueFrom:
