@@ -27,7 +27,7 @@ variable "db_admin_user" {
   description = "Database admin user"
 }
 
-variable "db_admin_password" {
+variable "random_db_password" {
   type        = string
   description = "Database admin password"
 }

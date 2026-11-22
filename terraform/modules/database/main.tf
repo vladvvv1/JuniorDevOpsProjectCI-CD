@@ -14,7 +14,7 @@ resource "azurerm_postgresql_flexible_server" "postgres" {
   private_dns_zone_id = var.private_dns_zone_id
 
   administrator_login    = var.db_admin_user
-  administrator_password = var.db_admin_password
+  administrator_password = var.random_db_password
 
   storage_mb = 32768
   sku_name   = "B_Standard_B1ms"

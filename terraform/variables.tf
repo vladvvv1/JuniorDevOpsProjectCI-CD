@@ -43,9 +43,3 @@ variable "db_admin_user" {
   description = "Database admin user"
   default     = "pgadmin_dev"
 }
-
-variable "db_admin_password" {
-  type        = string
-  description = "Database admin password"
-  default     = "MySuperStrongPassword123!"
-}

@@ -55,7 +55,7 @@ module "database" {
   resource_group_name       = azurerm_resource_group.main.name
   snet_db_id                = module.network.database_subnet_id
   private_dns_zone_id       = module.dns.private_dns_zone_id
-  db_admin_password         = module.keyvault.db_password
+  random_db_password        = module.keyvault.random_db_password
   db_admin_user             = var.db_admin_user
   dns_to_postgres_vnet_link = module.dns.dns_to_postgres_vnet_link
 }

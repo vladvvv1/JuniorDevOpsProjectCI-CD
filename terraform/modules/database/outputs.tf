@@ -28,3 +28,8 @@ output "database_password" {
   value       = azurerm_postgresql_flexible_server.postgres.administrator_password
   sensitive   = true
 }
+
+output "database_user" {
+  value = azurerm_postgresql_flexible_server.postgres.administrator_login
+  sensitive = true
+}

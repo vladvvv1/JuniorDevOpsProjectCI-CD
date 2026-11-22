@@ -1,3 +1,6 @@
-output "db_password" {
-  value = azurerm_key_vault_secret.db_password.value
+
+
+output "random_db_password" {
+  value = random_password.db_password.result
+  sensitive = true
 }
