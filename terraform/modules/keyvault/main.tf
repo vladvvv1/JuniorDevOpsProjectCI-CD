@@ -20,7 +20,7 @@ resource "azurerm_key_vault" "kv" {
 resource "random_password" "db_password" {
   length           = 24
   special          = true
-  override_special = override_special = "!-_"
+  override_special = "!-_"
 }
 
 resource "azurerm_role_assignment" "sp_kv_officer" {
