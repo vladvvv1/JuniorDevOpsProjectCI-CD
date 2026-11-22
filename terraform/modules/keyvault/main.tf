@@ -18,14 +18,14 @@ resource "azurerm_key_vault" "kv" {
 }
 
 resource "random_password" "db_password" {
-  length           = 16
+  length           = 24
   special          = true
-  override_special = "!#%&*()-_=+[]{}<>?"
+  override_special = override_special = "!-_"
 }
 
 resource "azurerm_role_assignment" "sp_kv_officer" {
   scope                = azurerm_key_vault.kv.id
-  role_definition_name = "Key Vault Secrets User"
+  role_definition_name = "Key Vault Secrets Officer"
   principal_id         = data.azurerm_client_config.current.object_id
 }
 
